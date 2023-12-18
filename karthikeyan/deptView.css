@@ -1,77 +1,56 @@
-/* deptView.css */
-.dept-view-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+
+.dept-management-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
  
-  .dept-view-title {
-    font-size: 1.5em;
-    text-align: center;
-    margin-bottom: 20px;
-  }
+.dept-management-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
  
-  .dept-view-form {
-    display: flex;
-    flex-direction: column;
-  }
+.dept-management-buttons {
+  margin-bottom: 20px;
+}
  
-  .dept-view-label {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
+.dept-management-buttons button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
  
-  .dept-view-input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-top: 5px;
-    box-sizing: border-box;
-  }
+.dept-management-table {
+  width: 100%;
+  border-collapse: collapse;
+}
  
-  .dept-view-button-submit {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
+.dept-management-table th,
+.dept-management-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
  
-  .dept-view-button-submit:hover {
-    background-color: #45a049;
-  }
+.dept-management-table th {
+  background-color: #f2f2f2;
+}
  
-  .dept-view-details {
-    margin-top: 20px;
-  }
+.dept-management-table input[type="text"] {
+  width: 80%;
+  padding: 8px;
+  margin: 2px 0;
+  box-sizing: border-box;
+}
  
-  .dept-view-details h3 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-  }
+.dept-management-table input[type="checkbox"] {
+  margin-top: 4px;
+}
  
-  .dept-view-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
- 
-  .dept-view-table th,
-  .dept-view-table td {
-    padding: 8px;
-    border: 1px solid #ddd;
-  }
- 
-  .dept-view-table th {
-    background-color: #f2f2f2;
-  }
- 
-  .dept-view-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
+/* Style for disabled buttons */
+.dept-management-buttons button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
  

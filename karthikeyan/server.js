@@ -314,6 +314,61 @@ app.post('/sendProjectAssign', async (req, res) => {
   }
 });
 //--------------------------------------------------------------------------------------
+app.post('/sendDeleteDepartmentEmail', async (req, res) => {
+  const deletedDepartments = req.body.deletedDepartments;
+  try {
+    deletedDepartments.forEach((department) => {
+      const mailOptions = {
+        from: 'karthi.blogger.avatar@gmail.com',
+        to: 'karthi.blogger.avatar@gmail.com', // Replace with recipient's email
+        subject: 'Department Deleted',
+        text: `The department "${department.name}" has been deleted.`,
+      };
+
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.error('Error sending email:', error);
+        } else {
+          console.log('Delete department email sent:', info.response);
+        }
+      });
+    });
+
+    res.status(200).send('Delete department email sent successfully!');
+  } catch (error) {
+    console.error('Error sending delete department email:', error);
+    res.status(500).send('Failed to send delete department email.');
+  }
+});
+
+//--------------------------------------------------------------------------------------
+app.post('/sendEditDepartmentEmail', async (req, res) => {
+  const { name } = req.body; // Extract 'name' from the request body
+
+  try {
+    const mailOptions = {
+      from: 'karthi.blogger.avatar@gmail.com',
+      to: 'karthi.blogger.avatar@gmail.com', // Replace with recipient's email
+      subject: 'Department Edited',
+      text: `The department "${name}" has been edited.`,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error('Error sending email:', error);
+        res.status(500).send('Failed to send edit department email.');
+      } else {
+        console.log('Edit department email sent:', info.response);
+        res.status(200).send('Edit department email sent successfully!');
+      }
+    });
+  } catch (error) {
+    console.error('Error sending edit department email:', error);
+    res.status(500).send('Failed to send edit department email.');
+  }
+});
+
+//--------------------------------------------------------------------------------------
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
