@@ -1,19 +1,32 @@
-import React from 'react';
-import LandingPage from './LandingPage';
-import About from './About';
-import Contact from './Contact';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css'
+import React, { useState } from 'react';
+import Homepage from './home';
+import SkillMappingPage from './SkillMapping';
 
+const App = () => {
+  const [currentPage, setCurrentPage] = useState('Content page');
 
-function App() {
   return (
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+    <div>
+      <header>
+        <nav>
+          <button onClick={() => setCurrentPage('Home')}>Home</button>
+          <br />
+          <br />
+        
+          <button onClick={() => setCurrentPage('skill')}>Skill Mapping</button>
+          <br />
+          <br />
+
+        </nav>
+      </header>
+      <main>
+        {currentPage === 'Home' && <Homepage />}
+        <br />
+        <br />
+        {currentPage === 'skill' && <SkillMappingPage />}
+      </main>
+    </div>
   );
-}
+};
 
 export default App;
