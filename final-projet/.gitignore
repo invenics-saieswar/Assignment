@@ -21,3 +21,61 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+# .gitignore
+/.VirtualBox/
+/.bash_history
+/.cache/
+/.conda/
+/.condarc
+/.config/
+/.continuum/
+/.gitconfig
+/.gitignore
+/.ipynb_checkpoints/
+/.ipython/
+/.jupyter/
+/.lesshst
+/.m2/
+/.node_repl_history
+/.nuget/
+/.redhat/
+/.vscode/
+/3D Objects/
+/AppData/
+/Contacts/
+/Downloads/
+/Favorites/
+/IntelGraphicsProfiles/
+/Links/
+/Music/
+/NTUSER.DAT
+/NTUSER.DAT{a53a6cc6-8072-11ed-ba9e-046c59799d34}.TM.blf
+/NTUSER.DAT{a53a6cc6-8072-11ed-ba9e-046c59799d34}.TMContainer00000000000000000001.regtrans-ms 
+/NTUSER.DAT{a53a6cc6-8072-11ed-ba9e-046c59799d34}.TMContainer00000000000000000002.regtrans-ms 
+/OneDrive - Invenics Ltd/
+/Project-tracking/
+/Saved Games/
+/Searches/
+/Students.csv
+/Videos/
+/VirtualBox VMs/
+/anaconda3/
+/first.java
+/first.py
+/hello.py
+/my-react-app/
+/new.html
+/node
+/nodejs/
+/ntuser.dat.LOG1
+/ntuser.dat.LOG2
+/ntuser.ini
+/package-lock.json
+/package.json
+/python.ipynb
+/rishi/
+/rough-react-app/
+/testsample.sh
+/untitled
