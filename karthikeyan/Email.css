@@ -1,0 +1,118 @@
+/* Styles for the EmailForm component */
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.name-input,
+.email-input {
+  padding: 8px;
+  margin: 8px 0;
+  border: 2px solid #12243c; /* Dark blue border */
+  background-color: #fff; /* White background */
+  color: #12243c; /* Dark blue text */
+  width: 200px; /* Adjust width as needed */
+}
+
+.name-input:focus,
+.email-input:focus {
+  outline: none;
+  border-radius: 30px;
+  border-color: #54b9d8; /* Darker blue outline on focus */
+}
+
+.send-email-button {
+  padding: 10px 16px;
+  margin-left: 8px;
+  margin-top: 8px;
+  border: none;
+  background-color: #4caf50; /* Green background */
+  color: #fff; /* White text */
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.send-email-button:hover {
+  background-color: #0c6911; /* Darker green on hover */
+}
+
+.send-email-button:disabled {
+  background-color: #ccc; /* Grey color when button is disabled */
+  cursor: not-allowed; /* Change cursor to not-allowed when disabled */
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #000; /* Black background color */
+  height: 40px; /* Navbar height */
+  width: 100%; /* Full width of the window */
+  position: fixed; /* Fixed position */
+  top: 0; /* Positioned at the top */
+  left: 0; /* Ensure it starts from the left edge */
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
+  display: flex;
+  justify-content: space-between; /* Space between items */
+  align-items: center;
+}
+
+.navbar-content {
+  padding: 0 20px; /* Horizontal padding */
+  display: flex;
+  align-items: center;
+}
+
+.bell-icon {
+  width: 20px; /* Adjust bell icon size */
+  height: auto;
+  cursor: pointer; /* Cursor change on hover */
+}
+
+/* Additional spacing for the content below the navbar */
+.content {
+  padding-top: 40px; /* Adjust as needed to create space below the navbar */
+}
+
+
+/* Success message popup */
+.message-popup.success {
+  background-color: rgba(94, 186, 125, 0.8); /* Semi-transparent green background color */
+  color: #ffffff; /* White text color */
+  box-shadow: 0 0 10px rgba(94, 186, 125, 0.5); /* Green shadow */
+  position: fixed; /* Fixed positioning */
+  top: 70px; /* Distance from top */
+  right: 20px; /* Distance from right */
+  padding: 10px; /* Padding around the text */
+  border-radius: 0 40px 0 40px ;
+}
+
+/* Error message popup */
+.message-popup.error {
+  background-color: rgba(244, 67, 54, 0.8); /* Semi-transparent red background color */
+  color: #ffffff; /* White text color */
+  box-shadow: 0 0 10px rgba(244, 67, 54, 0.5); /* Red shadow */
+  position: fixed; /* Fixed positioning */
+  top: 70px; /* Distance from top */
+  right: 20px; /* Distance from right */
+  padding: 10px; /* Padding around the text */
+  border-radius:  40px 0 40px 0;
+}
+
+
+
+

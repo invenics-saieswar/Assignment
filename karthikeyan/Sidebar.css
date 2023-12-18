@@ -1,0 +1,96 @@
+/* Sidebar Styles */
+.sidebar {
+    background-color: #000000a1; /* Light background color */
+    color: #333; /* Text color */
+    padding: 20px;
+    position: fixed;
+    top: 55px; /* Adjust based on your header height */
+    left: 0;
+    bottom: 40px; /* Adjust based on your footer height */
+    width: 200px; /* Adjust width as needed */
+    z-index: 999; /* Lower z-index than Header */
+    
+  }
+  
+  /* Rest of your Sidebar styles */
+  .toggle-container {
+    margin-bottom: 20px;
+  }
+  
+  .toggle-button {
+    padding: 8px 16px;
+    margin-right: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #e0e0e0;
+    color: #333;
+  }
+  
+  .toggle-button.active {
+    background-color: #4caf50;
+    color: #fff;
+  }
+
+  .admin-options{
+    color: white;
+  }
+
+  .employee-options{
+    color: white;
+  }
+
+  .edit-employee,.edit-department,.edit-project{
+    cursor: pointer;
+  }
+
+  .emplyee-popup{
+    position: absolute;
+    top: 75px;
+    right: -150px; /* Adjust this value to position the pop-up */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    color: black;
+  }
+
+  .department-popup{
+    position: absolute;
+    top: 105px;
+    right: -160px; /* Adjust this value to position the pop-up */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    color: black;
+  }
+  
+  .project-popup{
+    position: absolute;
+    top: 165px;
+    right: -122px; /* Adjust this value to position the pop-up */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    color: black;
+  }
+
+  .add-employee,
+  .update-employee,
+  .delete-employee,
+  .view-employee,
+  .add-department,
+  .update-department,
+  .delete-department,
+  .view-department,
+  .create-project,
+  .delete-project,
+  .view-project,
+  .assign-project{
+    cursor: pointer;
+  }

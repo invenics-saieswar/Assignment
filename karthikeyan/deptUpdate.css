@@ -1,0 +1,52 @@
+/* deptUpdate.css */
+.dept-update-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+ 
+  .dept-update-title {
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+ 
+  .dept-update-form {
+    display: flex;
+    flex-direction: column;
+  }
+ 
+  .dept-update-input-group {
+    margin-bottom: 15px;
+  }
+ 
+  .dept-update-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+ 
+  .dept-update-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+    box-sizing: border-box;
+  }
+ 
+  .dept-update-button-submit {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+ 
+  .dept-update-button-submit:hover {
+    background-color: #45a049;
+  }
+ 

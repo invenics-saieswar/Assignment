@@ -1,0 +1,77 @@
+/* deptView.css */
+.dept-view-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+ 
+  .dept-view-title {
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+ 
+  .dept-view-form {
+    display: flex;
+    flex-direction: column;
+  }
+ 
+  .dept-view-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+ 
+  .dept-view-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+    box-sizing: border-box;
+  }
+ 
+  .dept-view-button-submit {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+ 
+  .dept-view-button-submit:hover {
+    background-color: #45a049;
+  }
+ 
+  .dept-view-details {
+    margin-top: 20px;
+  }
+ 
+  .dept-view-details h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+ 
+  .dept-view-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+ 
+  .dept-view-table th,
+  .dept-view-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+ 
+  .dept-view-table th {
+    background-color: #f2f2f2;
+  }
+ 
+  .dept-view-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+ 

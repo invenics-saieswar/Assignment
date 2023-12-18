@@ -1,0 +1,77 @@
+/* empView.css */
+.emp-view-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+ 
+.emp-view-title {
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+ 
+.emp-view-form {
+  display: flex;
+  flex-direction: column;
+}
+ 
+.emp-view-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+ 
+.emp-view-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+ 
+.emp-view-button-submit {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+ 
+.emp-view-button-submit:hover {
+  background-color: #45a049;
+}
+ 
+.emp-view-details {
+  margin-top: 20px;
+}
+ 
+.emp-view-details h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+ 
+.emp-view-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+ 
+.emp-view-table th,
+.emp-view-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+ 
+.emp-view-table th {
+  background-color: #f2f2f2;
+}
+ 
+.emp-view-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+ 

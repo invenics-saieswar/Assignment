@@ -1,0 +1,48 @@
+/* Header Styles */
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header-title {
+  margin: 0;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  margin-left: 750px;
+}
+
+.header-icon {
+  margin-left: 20px;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+}
+
+.notification-box {
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  width: 300px;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #A9A9A9;
+  border: 1px solid ghostwhite;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
