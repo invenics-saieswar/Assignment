@@ -18,7 +18,8 @@ function Project() {
         projectIdError: "",
         departmentError: "",
         startDateError: "",
-        endDateError: ""
+        endDateError: "",
+          skillsError: ""
         });
  
     const showCreateProject = () => {
@@ -39,7 +40,7 @@ function Project() {
             ...projectData,
             [name]: value
         });
-        validateInput(name, value);
+        validateInput(name, value); // Validate the input on each change
     };
     const validateInput = (name, value) => {
         switch (name) {
@@ -67,11 +68,52 @@ function Project() {
                     setErrors({ ...errors, departmentError: "" });
                 }
                 break;
-            default:
-                break;
+                case "startDate":
+                    const today = new Date();
+                    const selectedStartDate = new Date(value);
+                    const isValidStartDate = selectedStartDate >= today;
+        
+                    if (!isValidStartDate) {
+                        setErrors({ ...errors, startDateError: "No past date allowed." });
+                    } else {
+                        setErrors({ ...errors, startDateError: "" });
+                    }
+                    break;
+                case "endDate":
+                    const selectedEndDate = new Date(value);
+                    const isValidEndDate = selectedEndDate >= new Date(projectData.startDate);
+        
+                    if (!isValidEndDate) {
+                        setErrors({ ...errors, endDateError: "End date should not be before start date." });
+                    } else {
+                        setErrors({ ...errors, endDateError: "" });
+                    }
+                    break;
+                    case "newSkill":
+                        const skillRegex = /^[a-zA-Z\s]*$/;
+                        if (!value.match(skillRegex)) {
+                            setErrors({ ...errors, skillsError: "Only alphabets and spaces are allowed." });
+                        } else {
+                            setErrors({ ...errors, skillsError: "" });
+                        }
+                        break;
+                default:
+                    break;
         }
     };
-    
+      const validateDate = (startDate, endDate) => {
+        const today = new Date();
+        const selectedStartDate = new Date(startDate);
+        const selectedEndDate = new Date(endDate);
+
+        const isStartDateValid = selectedStartDate >= today;
+        const isEndDateValid = selectedEndDate >= selectedStartDate;
+
+        return {
+            isStartDateValid,
+            isEndDateValid
+        };
+    };
     const sendEmail = async (newProject) => {
         const emailDetails = {
             subject: 'New Project Created',
@@ -178,13 +220,15 @@ function Project() {
         const isDepartmentValid = department.trim() !== "" && !errors.departmentError;
         const isStartDateValid = startDate.trim() !== "" && !errors.startDateError;
         const isEndDateValid = endDate.trim() !== "" && !errors.endDateError;
-    
+       const { isStartDateValid: isStartValid, isEndDateValid: isEndValid } = validateDate(startDate, endDate);
         return (
             isProjectNameValid &&
             isProjectIdValid &&
             isDepartmentValid &&
             isStartDateValid &&
-            isEndDateValid
+            isEndDateValid&&
+            isStartValid &&
+            isEndValid
         );
 
     };
@@ -266,43 +310,49 @@ function Project() {
                         </label>
                         {/* ... */}
                         <br />
-                                        <label className="start-date-label">
-                                            Start Date:
-                                            <input
-                                                type="date"
-                                                name="startDate"
-                                                value={projectData.startDate}
-                                                onChange={handleChange}
-                                                className="start-date-input unique-startDate-input"
-                                            />
-                                        </label>
-                                        <br />
-                                        <label className="end-date-label">
-                                            End Date:
-                                            <input
-                                                type="date"
-                                                name="endDate"
-                                                value={projectData.endDate}
-                                                onChange={handleChange}
-                                                className="end-date-input unique-endDate-input"
-                                            />
-                                        </label>
-                                        <br />
-                                        <label className="skills-required-label">
-                                            Skills Required:
-                                            <input
-                                                type="text"
-                                                value={projectData.newSkill}
-                                                onChange={handleSkillInputChange}
-                                                onKeyPress={(e) => {
-                                                    if (e.key === "Enter") {
-                                                        handleAddSkill();
-                                                    }
-                                                }}
-                                                placeholder="Type and press Enter"
-                                                className="skills-required-input"
-                                            />
-                                        </label>
+                          {/* ... */}
+<label className="start-date-label">
+    Start Date:
+    <input
+        type="date"
+        name="startDate"
+        value={projectData.startDate}
+        onChange={handleChange}
+        className="start-date-input unique-startDate-input"
+    />
+    {errors.startDateError && <p className="error-message">{errors.startDateError}</p>}
+</label>
+<br />
+<label className="end-date-label">
+    End Date:
+    <input
+        type="date"
+        name="endDate"
+        value={projectData.endDate}
+        onChange={handleChange}
+        className="end-date-input unique-endDate-input"
+    />
+    {errors.endDateError && <p className="error-message">{errors.endDateError}</p>}
+</label>
+<br />
+<label className="skills-required-label">
+    Skills Required:
+    <input
+        type="text"
+        value={projectData.newSkill}
+        onChange={handleSkillInputChange}
+        onKeyPress={(e) => {
+            if (e.key === "Enter") {
+                handleAddSkill();
+            }
+        }}
+        placeholder="Type and press Enter"
+        className="skills-required-input"
+    />
+    {errors.skillsError && <p className="error-message">{errors.skillsError}</p>}
+</label>
+{/* ... */}
+
                                         <div className="chips-container">
                                             {projectData.skillsRequired.map((skill, index) => (
                                                 <div key={index} className="chip">
@@ -319,25 +369,26 @@ function Project() {
                 );
                 
             case "DeleteProject":
-                return (
-                    <div className="delete-project-container">
-                        {/* Your code for Delete Project component */}
-                        <h1 className="delete-project-title">Delete Project</h1>
-                        <label className="project-id-delete-label">
-                            Project ID to Delete:
-                            <input
-                                type="text"
-                                name="projectId"
-                                value={projectData.projectId}
-                                onChange={handleChange}
-                                className="project-id-delete-input unique-projectId-delete-input"
-                            />
-                        </label>
-                        <br />
-                        <button onClick={() => handleDeleteProjectById(projectData.projectId)} className="delete-button unique-delete-button">Delete Project</button>
-                    </div>
- 
-                );
+                case "DeleteProject":
+                    return (
+                        <div className="delete-project-container">
+                            <h1 className="delete-project-title">Delete Project</h1>
+                            <label className="project-id-delete-label">
+                                Project ID to Delete:
+                                <input
+                                    type="text"
+                                    name="projectId"
+                                    value={projectData.projectId}
+                                    onChange={handleChange}
+                                    className="project-id-delete-input unique-projectId-delete-input"
+                                />
+                                {errors.projectIdError && <p className="error-message">{errors.projectIdError}</p>}
+                            </label>
+                            <br />
+                            <button onClick={() => handleDeleteProjectById(projectData.projectId)} className="delete-button unique-delete-button">Delete Project</button>
+                        </div>
+                    );
+                
             // default:
             case "ListOfProjects":
                 return (
