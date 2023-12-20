@@ -1,9 +1,7 @@
 
 import React, { useState } from 'react';
 import '../../Pages/CSS/deptView.css';
-import Header from './Header';
-import Sidebar from './Sidebar';
-import Footer from './Footer';
+
  
 function DeptManagement() {
   const [departmentData, setDepartmentData] = useState({
@@ -15,6 +13,11 @@ function DeptManagement() {
  
   const [selectedRows, setSelectedRows] = useState([]);
   const [editDepartment, setEditDepartment] = useState(null);
+
+  // State for managing success and error messages
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
+ 
 
   const handleDelete = async () => {
     const deletedDepartments = selectedRows.map((id) => departmentData[id]);
@@ -30,11 +33,15 @@ function DeptManagement() {
 
       if (response.ok) {
         console.log('Delete email sent successfully!');
+        showSuccess();
+        // Display success message  inside try
       } else {
         console.error('Failed to send delete email.');
       }
     } catch (error) {
       console.error('Error sending delete email:', error);
+      showError();
+      // Display error message inside catch
     }
 
    setDepartmentData((prevData) => {
@@ -68,6 +75,8 @@ function DeptManagement() {
   
         if (response.ok) {
           console.log('Edit email sent successfully!');
+          showSuccess();
+          // Display success message  inside try
         } else {
           console.error('Failed to send edit email.');
         }
@@ -76,6 +85,8 @@ function DeptManagement() {
       }
     } catch (error) {
       console.error('Error sending edit email:', error);
+      showError();
+      // Display error message inside catch
     }
   
     setEditDepartment(null);
@@ -104,11 +115,26 @@ function DeptManagement() {
       return newData;
     });
   };
+
+   // Function to display success message
+   const showSuccess = () => {
+    setShowSuccessMessage(true);
+    setTimeout(() => {
+      setShowSuccessMessage(false);
+    }, 3000); // Hide success message after 3 seconds
+  };
+ 
+  // Function to display error message
+  const showError = () => {
+    setShowErrorMessage(true);
+    setTimeout(() => {
+      setShowErrorMessage(false);
+    }, 3000); // Hide error message after 3 seconds
+  };
  
   return (
     <div className="dept-management-container">
-      <Header/>
-      <Sidebar/>
+
       <h2 className="dept-management-title">Department Management</h2>
       <div className="dept-management-buttons">
         {editDepartment ? (
@@ -162,7 +188,18 @@ function DeptManagement() {
           ))}
         </tbody>
       </table>
-      <Footer/>
+      
+      {showSuccessMessage && (
+          <div className="message-popup success">
+            <p>Email sent successfully!</p>
+          </div>
+        )}
+ 
+        {showErrorMessage && (
+          <div className="message-popup error">
+            <p>Failed to send email.</p>
+          </div>
+        )}
     </div>
   );
 }
